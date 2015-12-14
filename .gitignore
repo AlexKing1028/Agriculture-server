@@ -35,3 +35,8 @@ proguard/
 # Log Files
 *.log
 
+# apple config file
+.DS_Store ._.DS_Store
+
+# .idea
+/.idea/workspace.xml
