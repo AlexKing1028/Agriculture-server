@@ -1,8 +1,8 @@
-package agriculture.Controller;
+package agriculture.B_Controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import agriculture.Model.Greeting;
+import agriculture.E_Model.Greeting;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;

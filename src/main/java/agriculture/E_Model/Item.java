@@ -1,4 +1,4 @@
-package agriculture.Model;
+package agriculture.E_Model;
 
 /**
  * Created by REDROCK on 12/9/2015.

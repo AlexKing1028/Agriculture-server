@@ -1,6 +1,6 @@
-package agriculture.Controller;
+package agriculture.B_Controller;
 
-import agriculture.Model.Item;
+import agriculture.E_Model.Item;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,6 +12,7 @@ import java.util.Random;
  */
 
 @RestController
+@RequestMapping("/")
 public class InfoController{
     @RequestMapping("/info")
     public ArrayList<Item> info(){

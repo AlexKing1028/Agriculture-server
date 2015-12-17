@@ -1,4 +1,4 @@
-package agriculture.Model;
+package agriculture.E_Model;
 
 public class Greeting {
 

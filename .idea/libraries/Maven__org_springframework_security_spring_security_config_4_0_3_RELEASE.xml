@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="Maven: org.springframework.security:spring-security-config:4.0.3.RELEASE">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.0.3.RELEASE/spring-security-config-4.0.3.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.0.3.RELEASE/spring-security-config-4.0.3.RELEASE-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="file://$USER_HOME$/dependency_doc/spring-security/config/src/integration-test/java" />
+      <root url="file://$USER_HOME$/dependency_doc/spring-security/config/src/main/java" />
+      <root url="file://$USER_HOME$/dependency_doc/spring-security/config/src/test/groovy" />
+      <root url="file://$USER_HOME$/dependency_doc/spring-security/config/src/test/java" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-config/4.0.3.RELEASE/spring-security-config-4.0.3.RELEASE-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
