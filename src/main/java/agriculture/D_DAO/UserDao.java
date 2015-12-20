@@ -8,5 +8,7 @@ import agriculture.E_Model.User;
 public interface UserDao {
     User findUserByUserName(String username);
 
-    User createUser(String username, String password);w
+    boolean createUser(String username, String password);
+
+    boolean isUserExists(String username);
 }

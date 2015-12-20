@@ -23,5 +23,4 @@ public class UserDetailServiceImpl implements UserDetailsService{
         UserDetails userDetails=new User(username, "12345", true, true, true, true, gas);
         return userDetails;
     }
-
 }

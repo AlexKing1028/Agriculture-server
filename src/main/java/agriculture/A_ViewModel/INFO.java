@@ -9,4 +9,8 @@ public class INFO {
     public INFO(String message) {
         this.msg = message;
     }
+
+    public String getMsg(){
+        return msg;
+    }
 }

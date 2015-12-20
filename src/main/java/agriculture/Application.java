@@ -10,17 +10,13 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
+import javax.swing.*;
+
 @SpringBootApplication
 public class Application implements CommandLineRunner{
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
-    }
-
-    @Bean
-    JdbcTemplate jdbcTemplate(){
-        JdbcTemplate jdbcTemplate=new JdbcTemplate();
-        return jdbcTemplate;
     }
 
     @Override

@@ -3,7 +3,7 @@ package agriculture.E_Model;
 /**
  * Created by REDROCK on 12/9/2015.
  */
-public class Item {
+public class Item extends BaseModel{
     protected String title;
     protected int type;
 

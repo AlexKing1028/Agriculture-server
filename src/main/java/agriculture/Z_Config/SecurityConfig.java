@@ -22,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder(){
-        return new StandardPasswordEncoder();
+        return new BCryptPasswordEncoder();
     }
 
     private AuthenticationProvider customAuthenticaitonProvider() {
@@ -30,7 +30,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         custom.setUserDetailsService(new UserDetailServiceImpl());
         custom.setPasswordEncoder(passwordEncoder());
         return new DaoAuthenticationProvider();
-
     }
 
 
@@ -38,6 +37,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new UserDetailServiceImpl());
 
+        auth.authenticationProvider(customAuthenticaitonProvider());
     }
 
     @Override
@@ -50,5 +50,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .and()
                 .httpBasic();
+        http.csrf().ignoringAntMatchers("/user/register");
     }
 }

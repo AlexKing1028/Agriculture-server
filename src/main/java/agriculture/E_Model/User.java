@@ -3,8 +3,9 @@ package agriculture.E_Model;
 /**
  * Created by redrock on 15/12/16.
  */
-public class User {
-    int userID;
+
+public class User extends BaseModel{
+
     String name;
     String password;
 
@@ -19,6 +20,5 @@ public class User {
     public User(String name, String password) {
         this.name = name;
         this.password = password;
-        userID = -1;
     }
 }
