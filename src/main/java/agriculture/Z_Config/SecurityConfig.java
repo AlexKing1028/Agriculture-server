@@ -11,7 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 /**
  * Created by redrock on 15/12/16.
@@ -21,7 +20,7 @@ import org.springframework.security.crypto.password.StandardPasswordEncoder;
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
-    public PasswordEncoder passwordEncoder(){
+    public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -36,7 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(new UserDetailServiceImpl());
-
         auth.authenticationProvider(customAuthenticaitonProvider());
     }
 
@@ -47,9 +45,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/greeting", "/user/login", "/user/register").permitAll()
                 .anyRequest().authenticated()
                 .and()
-                .formLogin()
-                .and()
                 .httpBasic();
         http.csrf().ignoringAntMatchers("/user/register");
+        http.requiresChannel().anyRequest().requiresSecure();
     }
 }

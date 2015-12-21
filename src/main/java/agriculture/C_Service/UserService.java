@@ -3,7 +3,6 @@ package agriculture.C_Service;
 import agriculture.A_ViewModel.ViewUserDetail;
 import agriculture.D_DAO.UserDao;
 import agriculture.D_DAO.UserDetailDao;
-import agriculture.E_Model.User;
 import agriculture.E_Model.UserDetail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -24,16 +23,8 @@ public class UserService {
     @Autowired
     private UserDetailDao userDetailDao;
 
-    public boolean hashMatchUser(String username, String password) {
-        User user = userDao.findUserByUserName(username);
-        if (user != null && user.getPassword().equals(password)) {
-            return true;
-        }
-        return false;
-    }
-
-    public User findUserByUserName(String username) {
-        return userDao.findUserByUserName(username);
+    public boolean checkUser(String username, String password) {
+        return userDao.checkPassword(username, password);
     }
 
     public ViewUserDetail createNewUser(String name, String password) {
@@ -49,9 +40,14 @@ public class UserService {
         userDetail = userDetailDao.selectWith(name);
         if (userDetail != null) {
             return new ViewUserDetail(userDetail.getUserid(), userDetail.getUsername(), userDetail.getPhone(), userDetail.getEmail());
-        }else {
+        } else {
             return null;
         }
+    }
+
+    public ViewUserDetail getUserDetail(String name) {
+        UserDetail detail = userDetailDao.selectWith(name);
+        return new ViewUserDetail(detail.getUserid(), detail.getUsername(), detail.getPhone(), detail.getEmail());
     }
 
     public String checkUserAllowance(String username) {

@@ -11,4 +11,5 @@ public interface UserDao {
     boolean createUser(String username, String password);
 
     boolean isUserExists(String username);
+    boolean checkPassword(String username, String password);
 }
