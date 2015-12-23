@@ -1,6 +1,7 @@
 package agriculture.DA_DaoImp;
 
 import agriculture.DA_DaoImp.RowMapper.StringRowMapper;
+import agriculture.DA_DaoImp.RowMapper.UserRowMapper;
 import agriculture.D_DAO.UserDao;
 import agriculture.E_Model.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,16 @@ import java.util.List;
 public class UserDaoImp extends BaseDaoImp implements UserDao {
     @Autowired
     private StringRowMapper stringRowMapper;
+    @Autowired
+    private UserRowMapper userRowMapper;
 
     @Override
     public User findUserByUserName(String username) {
-        if ("tmp".equals(username)) {
-            return new User("tmp", "tmpps");
+        String query = "select * from users where username = ?";
+        List<User> result = getJdbcTemplate().query(query, userRowMapper, username);
+        if (result != null && result.size()==1){
+            return result.get(0);
         }
-
         return null;
     }
 
