@@ -16,8 +16,8 @@ public class CommodityItemRowMapper implements RowMapper<CommodityItem>{
     public CommodityItem mapRow(ResultSet rs, int rowNum) throws SQLException {
         int cid=rs.getInt(1);
         String cname=rs.getString(2);
-        String briefinfo=rs.getString(3);
-        String imageurl=rs.getString(4);
+        String imageurl=rs.getString(3);
+        String briefinfo=rs.getString(4);
         return new CommodityItem(cid, cname, briefinfo, imageurl);
     }
 }

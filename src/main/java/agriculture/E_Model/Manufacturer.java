@@ -5,6 +5,11 @@ package agriculture.E_Model;
  */
 public class Manufacturer extends BaseModel{
     int mid;
+
+    public int getMid() {
+        return mid;
+    }
+
     String mname;
     String introduction;
 

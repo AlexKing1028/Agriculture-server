@@ -7,9 +7,7 @@ public abstract class LinkBaseModel {
 
     Link link;
 
-    public Link getLink() {
-        return link;
-    }
+    public abstract Link getLink();
 
     public void setLink(Link link) {
         this.link = link;

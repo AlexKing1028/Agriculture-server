@@ -6,13 +6,13 @@ package agriculture.E_Model;
 public class CommodityItem extends BaseModel{
     int cid;
     String cname;
-    String breifinfo;
+    String briefinfo;
     String imageUrl;
 
-    public CommodityItem(int cid, String cname, String breifinfo, String imageUrl) {
+    public CommodityItem(int cid, String cname, String briefinfo, String imageUrl) {
         this.cid = cid;
         this.cname = cname;
-        this.breifinfo = breifinfo;
+        this.briefinfo = briefinfo;
         this.imageUrl = imageUrl;
     }
 
@@ -32,12 +32,12 @@ public class CommodityItem extends BaseModel{
         this.cname = cname;
     }
 
-    public String getBreifinfo() {
-        return breifinfo;
+    public String getBriefinfo() {
+        return briefinfo;
     }
 
-    public void setBreifinfo(String breifinfo) {
-        this.breifinfo = breifinfo;
+    public void setBriefinfo(String briefinfo) {
+        this.briefinfo = briefinfo;
     }
 
     public String getImageUrl() {

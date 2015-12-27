@@ -1,10 +1,18 @@
 package agriculture.B_Controller;
 
+import agriculture.A_ViewModel.Link;
+import agriculture.A_ViewModel.TypeInfoBaseModel;
+import agriculture.A_ViewModel.ViewCommodityBreifInfo;
+import agriculture.C_Service.CommodityService;
 import agriculture.E_Model.Item;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 /**
@@ -14,6 +22,9 @@ import java.util.Random;
 @RestController
 @RequestMapping("/")
 public class InfoController{
+    @Autowired
+    private CommodityService commodityService;
+
     @RequestMapping("/info")
     public ArrayList<Item> info(){
         ArrayList<Item> result=new ArrayList<>();
@@ -36,6 +47,15 @@ public class InfoController{
             }
 
         }
+        return result;
+    }
+
+    @RequestMapping("/curinfo")
+    public  List<Object> info(@RequestParam(defaultValue = "0") int start, @RequestParam(defaultValue = "20") int size){
+        List<ViewCommodityBreifInfo> image_infos=commodityService.fetchCommodityPagination(start, size);
+        ArrayList<Object> result = new ArrayList<>();
+        result.addAll(image_infos);
+        result.add(new Link("next", "/curinfo?start="+(start+size)+"&size="+size));
         return result;
     }
 }

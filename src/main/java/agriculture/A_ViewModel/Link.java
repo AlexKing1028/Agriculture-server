@@ -7,6 +7,10 @@ public class Link {
     String rel;
     String herf;
 
+    public String getRel() {
+        return rel;
+    }
+
     public String getHerf() {
         return herf;
     }

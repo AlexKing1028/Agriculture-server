@@ -25,6 +25,11 @@ public class ViewUserDetail extends LinkBaseModel{
         return email;
     }
 
+    @Override
+    public Link getLink() {
+        return link;
+    }
+
     public ViewUserDetail(long userid, String username, String phone, String email) {
         this.userid = userid;
         this.username = username;
