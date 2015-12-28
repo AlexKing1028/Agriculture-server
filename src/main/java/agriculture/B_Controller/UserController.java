@@ -24,11 +24,14 @@ public class UserController {
 
     @RequestMapping(path = "/register", method = RequestMethod.GET)
     public ViewUserDetail register(@RequestParam String username, @RequestParam String password) {
+        /*
         ViewUserDetail user = userService.createNewUser(username, password);
         if (user != null) {
             return user;
         }
         throw new DuplicateKeyException("username duplicated");
+        */
+        return null;
     }
 
     @RequestMapping(path = "/login", method = RequestMethod.GET)

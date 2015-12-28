@@ -3,7 +3,7 @@ package agriculture.C_Service;
 import agriculture.A_ViewModel.ViewUserDetail;
 import agriculture.D_DAO.UserDao;
 import agriculture.D_DAO.UserDetailDao;
-import agriculture.E_Model.UserDetail;
+import agriculture.E_Model.CustomUserDetails;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -27,28 +27,26 @@ public class UserService {
         return userDao.checkPassword(username, password);
     }
 
+
+    /*
     public ViewUserDetail createNewUser(String name, String password) {
         String pass = passwordEncoder.encode(password);
         if (!userDao.createUser(name, pass)) {
             return null;
         }
-        UserDetail userDetail = new UserDetail();
-        userDetail.setUsername(name);
-        if (!userDetailDao.addUserDetail(userDetail)) {
+        CustomUserDetails customUserDetails = new CustomUserDetails();
+        customUserDetails.setUsername(name);
+        if (!userDetailDao.addUserDetail(customUserDetails)) {
             return null;
         }
-        userDetail = userDetailDao.selectWith(name);
-        if (userDetail != null) {
-            return new ViewUserDetail(userDetail.getUserid(), userDetail.getUsername(), userDetail.getPhone(), userDetail.getEmail());
+        customUserDetails = userDetailDao.selectWith(name);
+        if (customUserDetails != null) {
+            return new ViewUserDetail(customUserDetails.getUserid(), customUserDetails.getUsername(), customUserDetails.getPhone(), customUserDetails.getEmail());
         } else {
             return null;
         }
     }
-
-    public ViewUserDetail getUserDetail(String name) {
-        UserDetail detail = userDetailDao.selectWith(name);
-        return new ViewUserDetail(detail.getUserid(), detail.getUsername(), detail.getPhone(), detail.getEmail());
-    }
+    */
 
     public String checkUserAllowance(String username) {
         if (username == null || username.equals("")) {

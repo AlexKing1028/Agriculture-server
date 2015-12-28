@@ -14,16 +14,17 @@ import java.sql.Timestamp;
  */
 @Repository
 public class ShoppingItemRowMapper implements RowMapper<ShoppingItem>{
+
     @Override
     public ShoppingItem mapRow(ResultSet rs, int rowNum) throws SQLException {
-
         int uid=rs.getInt(1);
         int cid=rs.getInt(2);
         String cname=rs.getString(3);
         String imageurl=rs.getString(4);
         String briefinfo=rs.getString(5);
-        Timestamp timestamp=rs.getTimestamp(6);
+        int count=rs.getInt(6);
+        Timestamp timestamp=rs.getTimestamp(7);
         CommodityItem commodityItem=new CommodityItem(cid,cname,briefinfo,imageurl);
-        return new ShoppingItem(uid, commodityItem, timestamp);
+        return new ShoppingItem(uid, commodityItem, count, timestamp);
     }
 }

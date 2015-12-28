@@ -1,6 +1,6 @@
 package agriculture.DA_DaoImp.RowMapper;
 
-import agriculture.E_Model.UserDetail;
+import agriculture.E_Model.CustomUserDetails;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
@@ -11,14 +11,10 @@ import java.sql.SQLException;
  * Created by redrock on 15/12/21.
  */
 @Repository
-public class UserDetailRowMapper implements RowMapper<UserDetail> {
+public class UserDetailRowMapper implements RowMapper<CustomUserDetails> {
     @Override
-    public UserDetail mapRow(ResultSet rs, int rowNum) throws SQLException {
-        UserDetail userDetail = new UserDetail();
-        userDetail.setUserid(rs.getInt("userid"));
-        userDetail.setUsername(rs.getString("username"));
-        userDetail.setPhone(rs.getString("phone"));
-        userDetail.setEmail(rs.getString("email"));
-        return userDetail;
+    public CustomUserDetails mapRow(ResultSet rs, int rowNum) throws SQLException {
+        CustomUserDetails customUserDetails = new CustomUserDetails(rs.getString(2),rs.getString(3), null, rs.getLong(1), rs.getString(4), rs.getString(5));
+        return customUserDetails;
     }
 }

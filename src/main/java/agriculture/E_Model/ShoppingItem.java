@@ -8,6 +8,19 @@ import java.sql.Timestamp;
 public class ShoppingItem {
     long uid;
     CommodityItem commodityItem;
+    int count;
+
+    public ShoppingItem(long uid, CommodityItem commodityItem, int count, Timestamp timestamp) {
+        this.uid = uid;
+        this.commodityItem = commodityItem;
+        this.count = count;
+        this.timestamp = timestamp;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
     Timestamp timestamp;
 
     public long getUid() {
@@ -20,12 +33,5 @@ public class ShoppingItem {
 
     public Timestamp getTimestamp() {
         return timestamp;
-    }
-
-    public ShoppingItem(long uid, CommodityItem commodityItem, Timestamp timestamp) {
-
-        this.uid = uid;
-        this.commodityItem = commodityItem;
-        this.timestamp = timestamp;
     }
 }

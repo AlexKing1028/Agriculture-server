@@ -17,20 +17,26 @@ public class ShoppingCartDaoImp extends BaseDaoImp implements ShoppingCartDao {
     private ShoppingItemRowMapper shoppingItemRowMapper;
 
     @Override
-    public void add(int cid, int uid) {
+    public void add(int cid, long uid) {
         String query = "insert into shopcart (uid, cid) values(?,?)";
         getJdbcTemplate().update(query, uid, cid);
     }
 
     @Override
-    public void delete(int cid, int uid) {
+    public void updateCount(long uid, int cid, int count) {
+        String query = "update shopcart set count = ? where uid=? and cid=?";
+        getJdbcTemplate().update(query, count, uid, cid);
+    }
+
+    @Override
+    public void delete(int cid, long uid) {
         String query = "delete from shopcart where uid=? and cid=?";
         getJdbcTemplate().update(query, uid, cid);
     }
 
     @Override
-    public List<ShoppingItem> find(int uid) {
-        String query = "select uid, cid, cname, imageurl, briefinfo,timestamp from shopcart as s join commodities as c on s.cid=c.cid where uid = ?";
+    public List<ShoppingItem> find(long uid) {
+        String query = "select uid, s.cid, cname, imageurl, briefinfo, count, timestamp from shopcart as s join commodities as c on s.cid=c.cid where uid = ?";
         List<ShoppingItem> result=getJdbcTemplate().query(query, shoppingItemRowMapper, uid);
         return result;
     }
